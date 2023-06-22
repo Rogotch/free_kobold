@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj1p60gpsenup"]
+
+[ext_resource type="PackedScene" uid="uid://cm30yvce523qp" path="res://Entities/game_resource.tscn" id="1_vaxce"]
+[ext_resource type="Texture2D" uid="uid://3ano13os1imd" path="res://Sprites/Test/roguelikeDungeon_transparent.png" id="2_731vq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvf80"]
+atlas = ExtResource("2_731vq")
+region = Rect2(221, 289, 16, 16)
+
+[node name="resource_object" instance=ExtResource("1_vaxce")]
+type = 18
+entity_id = 110
+
+[node name="resource_sprite" parent="." index="0"]
+texture_filter = 1
+scale = Vector2(0.7, 0.7)
+texture = SubResource("AtlasTexture_qvf80")

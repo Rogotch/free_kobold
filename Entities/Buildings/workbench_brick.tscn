@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://fy3doel5umrf"]
+
+[ext_resource type="PackedScene" uid="uid://cdk0811tq5qk3" path="res://Entities/base_building.tscn" id="1_bkjfv"]
+[ext_resource type="Script" path="res://Scripts/workbench.gd" id="2_wb5cm"]
+[ext_resource type="Texture2D" uid="uid://bsydml40rpbh8" path="res://Sprites/art_free/Pixel Art Top Down - Basic/Texture/TX Props.png" id="3_2s6vk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cip5"]
+atlas = ExtResource("3_2s6vk")
+region = Rect2(162, 153, 28, 36)
+
+[node name="workbench" instance=ExtResource("1_bkjfv")]
+script = ExtResource("2_wb5cm")
+building_id = 105
+ignore_drag = false
+entity_id = 105
+
+[node name="off_sprite" parent="." index="0"]
+self_modulate = Color(1, 0.533333, 1, 1)
+position = Vector2(-1, -5.5)
+texture = SubResource("AtlasTexture_3cip5")
+
+[node name="on_anim" parent="." index="1"]
+position = Vector2(0, -7.5)
+frame_progress = 0.0

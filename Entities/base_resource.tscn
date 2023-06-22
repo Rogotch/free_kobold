@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp4ricphxhig"]
+
+[ext_resource type="Texture2D" uid="uid://3ano13os1imd" path="res://Sprites/Test/roguelikeDungeon_transparent.png" id="1_du2f8"]
+[ext_resource type="Script" path="res://Scripts/base_resource.gd" id="1_ec6e6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn68b"]
+atlas = ExtResource("1_du2f8")
+region = Rect2(238, 204, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xmqia"]
+
+[node name="base_resource" type="StaticBody2D" node_paths=PackedStringArray("counter")]
+input_pickable = true
+script = ExtResource("1_ec6e6")
+counter = NodePath("counter")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_sn68b")
+
+[node name="counter" type="Label" parent="."]
+visible = false
+offset_left = -15.0
+offset_top = 4.0
+offset_right = 25.0
+offset_bottom = 16.0
+scale = Vector2(0.75, 0.75)
+text = "123"
+label_settings = SubResource("LabelSettings_xmqia")
+horizontal_alignment = 2

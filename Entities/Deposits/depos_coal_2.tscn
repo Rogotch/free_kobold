@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnhee7w80u887"]
+
+[ext_resource type="PackedScene" uid="uid://bp4ricphxhig" path="res://Entities/base_resource.tscn" id="1_xenqa"]
+[ext_resource type="Texture2D" uid="uid://cpqka8jf8w2xl" path="res://Sprites/art_free/Cozy farm asset pack/free version/free.png" id="2_j3vpi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6a0d"]
+atlas = ExtResource("2_j3vpi")
+region = Rect2(160, 0, 16, 16)
+
+[node name="base_resource" instance=ExtResource("1_xenqa")]
+type = 5
+
+[node name="sprite" parent="." index="0"]
+texture = SubResource("AtlasTexture_w6a0d")

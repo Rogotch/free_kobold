@@ -1,0 +1,165 @@
+[gd_scene load_steps=6 format=3 uid="uid://g3bd53s6bhpe"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_niv71"]
+[ext_resource type="PackedScene" uid="uid://67afyqfg36y2" path="res://Entities/slider.tscn" id="3_6nd3v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mbviw"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_rxuqv"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_oo8cm"]
+font_size = 32
+
+[node name="menu" type="Control" node_paths=PackedStringArray("restart_button", "close_button")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -353.5
+offset_top = -288.5
+offset_right = 353.5
+offset_bottom = 288.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_niv71")
+restart_button = NodePath("texture_rect/margin_container/content/restart_button")
+close_button = NodePath("texture_rect/margin_container/content/close_button")
+
+[node name="texture_rect" type="TextureRect" parent="."]
+self_modulate = Color(0.776471, 0.776471, 0.776471, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="margin_container_2" type="MarginContainer" parent="texture_rect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="panel" type="Panel" parent="texture_rect/margin_container_2"]
+layout_mode = 2
+
+[node name="margin_container" type="MarginContainer" parent="texture_rect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 110
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 110
+theme_override_constants/margin_bottom = 70
+
+[node name="content" type="VBoxContainer" parent="texture_rect/margin_container"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="title" type="Label" parent="texture_rect/margin_container/content"]
+layout_mode = 2
+text = "Menu"
+label_settings = SubResource("LabelSettings_mbviw")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="restart_button" type="Button" parent="texture_rect/margin_container/content"]
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="txt" type="Label" parent="texture_rect/margin_container/content/restart_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "restart"
+label_settings = SubResource("LabelSettings_rxuqv")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="close_button" type="Button" parent="texture_rect/margin_container/content"]
+custom_minimum_size = Vector2(160, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="txt" type="Label" parent="texture_rect/margin_container/content/close_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "continue"
+label_settings = SubResource("LabelSettings_rxuqv")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="v_box_container_1" type="VBoxContainer" parent="texture_rect/margin_container/content"]
+layout_mode = 2
+
+[node name="Slider_name" type="Label" parent="texture_rect/margin_container/content/v_box_container_1"]
+layout_mode = 2
+text = "All sounds"
+label_settings = SubResource("LabelSettings_oo8cm")
+vertical_alignment = 1
+uppercase = true
+
+[node name="slider" parent="texture_rect/margin_container/content/v_box_container_1" instance=ExtResource("3_6nd3v")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="v_box_container_2" type="VBoxContainer" parent="texture_rect/margin_container/content"]
+layout_mode = 2
+
+[node name="Slider_name_2" type="Label" parent="texture_rect/margin_container/content/v_box_container_2"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_oo8cm")
+vertical_alignment = 1
+uppercase = true
+
+[node name="slider_2" parent="texture_rect/margin_container/content/v_box_container_2" instance=ExtResource("3_6nd3v")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+bus_name = "music"
+
+[node name="v_box_container_3" type="VBoxContainer" parent="texture_rect/margin_container/content"]
+layout_mode = 2
+
+[node name="Slider_name_3" type="Label" parent="texture_rect/margin_container/content/v_box_container_3"]
+layout_mode = 2
+text = "Sounds
+"
+label_settings = SubResource("LabelSettings_oo8cm")
+vertical_alignment = 1
+uppercase = true
+
+[node name="slider_3" parent="texture_rect/margin_container/content/v_box_container_3" instance=ExtResource("3_6nd3v")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+bus_name = "vfx"
+
+[connection signal="pressed" from="texture_rect/margin_container/content/restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="texture_rect/margin_container/content/close_button" to="." method="_on_close_button_pressed"]

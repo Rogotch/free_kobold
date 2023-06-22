@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://du0i41fvf4mm5"]
+
+[ext_resource type="Texture2D" uid="uid://boh8ddgkkwhsv" path="res://Sprites/Test/roguelikeSheet_transparent.png" id="1_g6oh8"]
+
+[resource]
+atlas = ExtResource("1_g6oh8")
+region = Rect2(918, 357, 16, 16)

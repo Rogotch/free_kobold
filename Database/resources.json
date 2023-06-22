@@ -1,0 +1,162 @@
+[
+	{
+		"id"   : 0,
+		"type" : "stone",
+		"entity_id" : 0,
+	},
+	{
+		"id"   : 1,
+		"type" : "water",
+		"entity_id" : 1,
+	},
+	{
+		"id"   : 2,
+		"type" : "grass",
+		"entity_id" : 2,
+	},
+	{
+		"id"   : 3,
+		"type" : "earth",
+		"entity_id" : 3,
+	},
+	{
+		"id"   : 4,
+		"type" : "wood",
+		"entity_id" : 4,
+	},
+	{
+		"id"   : 5,
+		"type" : "coal",
+		"entity_id" : 5,
+	},
+	{
+		"id"   : 6,
+		"type" : "iron_ore",
+		"entity_id" : 6,
+	},
+	{
+		"id"   : 7,
+		"type" : "gold_ore",
+		"entity_id" : 7,
+	},
+	{
+		"id"   : 8,
+		"type" : "clay",
+		"entity_id" : 8,
+	},
+	{
+		"id"   : 9,
+		"type" : "brick",
+		"entity_id" : 9,
+	},
+	{
+		"id"   : 10,
+		"type" : "vessel",
+		"entity_id" : 10,
+	},
+	{
+		"id"   : 11,
+		"type" : "rope",
+		"entity_id" : 11,
+	},
+	{
+		"id"   : 12,
+		"type" : "cloth",
+		"entity_id" : 12,
+	},
+	{
+		"id"   : 13,
+		"type" : "iron_bar",
+		"entity_id" : 13,
+	},
+	{
+		"id"   : 14,
+		"type" : "gold_bar",
+		"entity_id" : 14,
+	},
+	{
+		"id"   : 15,
+		"type" : "steel_bar",
+		"entity_id" : 15,
+	},
+	{
+		"id"   : 16,
+		"type" : "hammer",
+		"entity_id" : 16,
+	},
+	{
+		"id"   : 17,
+		"type" : "gear",
+		"entity_id" : 17,
+	},
+	{
+		"id"   : 18,
+		"type" : "bellows",
+		"entity_id" : 18,
+	},
+	{
+		"id"   : 19,
+		"type" : "anvil",
+		"entity_id" : 19,
+	},
+	{
+		"id"   : 100,
+		"type" : "miner_grass_drop",
+		"entity_id" : 100,
+	},
+	{
+		"id"   : 101,
+		"type" : "miner_clay_drop",
+		"entity_id" : 101,
+	},
+	{
+		"id"   : 102,
+		"type" : "miner_ore_drop",
+		"entity_id" : 102,
+	},
+	{
+		"id"   : 103,
+		"type" : "workbench_workshop_drop",
+		"entity_id" : 103,
+	},
+	{
+		"id"   : 104,
+		"type" : "workbench_cloth_drop",
+		"entity_id" : 104,
+	},
+	{
+		"id"   : 105,
+		"type" : "workbench_brick_drop",
+		"entity_id" : 105,
+	},
+	{
+		"id"   : 106,
+		"type" : "workbench_water_drop",
+		"entity_id" : 106,
+	},
+	{
+		"id"   : 107,
+		"type" : "workbench_vessel_drop",
+		"entity_id" : 107,
+	},
+	{
+		"id"   : 108,
+		"type" : "conveyor",
+		"entity_id" : 108,
+	},
+	{
+		"id"   : 109,
+		"type" : "workbench_foundry_drop",
+		"entity_id" : 109,
+	},
+	{
+		"id"   : 110,
+		"type" : "workbench_smithy_drop",
+		"entity_id" : 110,
+	},
+	{
+		"id"   : 111,
+		"type" : "workbench_shredder_drop",
+		"entity_id" : 111,
+	}
+]

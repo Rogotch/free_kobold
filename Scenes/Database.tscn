@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5ccit1qsukyv"]
+
+[ext_resource type="Script" path="res://Scripts/database.gd" id="1_44f4x"]
+
+[node name="Database" type="Node"]
+script = ExtResource("1_44f4x")
+JSON_entities = "res://Database/entities.json"
+JSON_resources = "res://Database/resources.json"
+JSON_recipes = "res://Database/recipes.json"
+JSON_buildings = "res://Database/buildings.json"

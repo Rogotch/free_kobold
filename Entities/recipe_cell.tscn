@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgewap2644s17"]
+
+[ext_resource type="PackedScene" uid="uid://dwfaq65qa1o0a" path="res://Entities/base_ui_cell.tscn" id="1_xl1bx"]
+[ext_resource type="Script" path="res://Scripts/recipe_cell.gd" id="2_5kalo"]
+
+[sub_resource type="Gradient" id="Gradient_m24wl"]
+offsets = PackedFloat32Array(0, 0.0454545, 0.946281, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="recipe_cell" node_paths=PackedStringArray("line_2d") instance=ExtResource("1_xl1bx")]
+script = ExtResource("2_5kalo")
+line_2d = NodePath("line_2d")
+
+[node name="line_2d" type="Line2D" parent="." index="0"]
+visible = false
+show_behind_parent = true
+position = Vector2(20, 21)
+points = PackedVector2Array(0, 0, 100, 0, 200, 0, 200, 100, 200, 200)
+width = 5.0
+gradient = SubResource("Gradient_m24wl")
+joint_mode = 1
+begin_cap_mode = 2

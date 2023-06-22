@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbv8y4q15rug8"]
+
+[ext_resource type="PackedScene" uid="uid://bp4ricphxhig" path="res://Entities/base_resource.tscn" id="1_1b6go"]
+[ext_resource type="Texture2D" uid="uid://dm03i4axk8er3" path="res://Sprites/art_free/Tiny Dungeon/assets/Tilemap/tilemap_packed.png" id="2_7xxwg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7q4p"]
+atlas = ExtResource("2_7xxwg")
+region = Rect2(96, 48, 16, 16)
+
+[node name="base_resource" instance=ExtResource("1_1b6go")]
+
+[node name="sprite" parent="." index="0"]
+texture = SubResource("AtlasTexture_v7q4p")

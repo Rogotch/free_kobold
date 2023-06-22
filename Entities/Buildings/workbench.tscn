@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://530ost74iosj"]
+
+[ext_resource type="PackedScene" uid="uid://cdk0811tq5qk3" path="res://Entities/base_building.tscn" id="1_aip1a"]
+[ext_resource type="Script" path="res://Scripts/workbench.gd" id="2_alska"]
+
+[node name="workbench" instance=ExtResource("1_aip1a")]
+script = ExtResource("2_alska")
+building_id = 0
+ignore_drag = false

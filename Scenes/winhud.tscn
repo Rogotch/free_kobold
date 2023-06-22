@@ -1,0 +1,404 @@
+[gd_scene load_steps=15 format=3 uid="uid://cp4jb1syv1ne"]
+
+[ext_resource type="Script" path="res://Scripts/winhud.gd" id="1_1nxr0"]
+[ext_resource type="Script" path="res://Scripts/base_ui.gd" id="2_negq3"]
+[ext_resource type="PackedScene" uid="uid://dwfaq65qa1o0a" path="res://Entities/base_ui_cell.tscn" id="3_s2rvu"]
+[ext_resource type="AudioStream" uid="uid://cvah6p3d7fch8" path="res://Sounds/music_amb.mp3" id="4_ln6wv"]
+[ext_resource type="AudioStream" uid="uid://c7aqffvm43dg5" path="res://Sounds/snd_button.wav" id="5_8dhsw"]
+[ext_resource type="AudioStream" uid="uid://e05d7rmhp3g" path="res://Sounds/snd_drop.wav" id="6_qe77j"]
+[ext_resource type="AudioStream" uid="uid://cglhhjyhgqiee" path="res://Sounds/snd_list.wav" id="7_d65et"]
+[ext_resource type="AudioStream" uid="uid://cgune8tu5f5po" path="res://Sounds/snd_pickup.wav" id="8_imd1h"]
+[ext_resource type="AudioStream" uid="uid://cjvo2fh2awrax" path="res://Sounds/snd_steps.wav" id="9_cj7ol"]
+[ext_resource type="AudioStream" uid="uid://budb7kv4j3dib" path="res://Sounds/snd_tool.mp3" id="10_rupjc"]
+[ext_resource type="AudioStream" uid="uid://b0d6aw33nud4w" path="res://Sounds/snd_whoosh.wav" id="11_srwxv"]
+[ext_resource type="AudioStream" uid="uid://bb4viuttcgjsv" path="res://Sounds/snd_work.wav" id="12_xxvgm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d7uvu"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_850d7"]
+font_size = 32
+font_color = Color(0.67451, 0.67451, 0.67451, 1)
+
+[node name="winhud" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_1nxr0")
+
+[node name="ui" type="CanvasLayer" parent="." node_paths=PackedStringArray("item_list", "dragable_cells", "left_inventory", "top_inventory", "right_inventory")]
+layer = 5
+script = ExtResource("2_negq3")
+item_list = NodePath("ItemList")
+dragable_cells = NodePath("dragable_cells")
+left_inventory = NodePath("left_inventory")
+top_inventory = NodePath("top_inventory")
+right_inventory = NodePath("right_inventory")
+
+[node name="dragable_cells" type="CanvasLayer" parent="ui"]
+layer = 8
+
+[node name="ItemList" type="ItemList" parent="ui"]
+visible = false
+texture_filter = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -118.0
+grow_horizontal = 2
+grow_vertical = 0
+item_count = 3
+max_columns = 10
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2i(64, 64)
+item_0/text = "rdftgb"
+item_1/text = "dfgvbdfvbdfv"
+item_2/text = "dfgdfgdfg"
+
+[node name="left_inventory" type="TextureRect" parent="ui"]
+self_modulate = Color(0.780392, 0.780392, 0.780392, 1)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 96.0
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="margin_container" type="MarginContainer" parent="ui/left_inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="panel" type="Panel" parent="ui/left_inventory/margin_container"]
+layout_mode = 2
+
+[node name="container" type="VBoxContainer" parent="ui/left_inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="base_ui_cell_1" parent="ui/left_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_2" parent="ui/left_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_3" parent="ui/left_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_4" parent="ui/left_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_5" parent="ui/left_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_6" parent="ui/left_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_7" parent="ui/left_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_8" parent="ui/left_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_9" parent="ui/left_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="top_inventory" type="TextureRect" parent="ui"]
+self_modulate = Color(0.780392, 0.780392, 0.780392, 1)
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 80.0
+offset_right = -80.0
+offset_bottom = 102.0
+grow_horizontal = 2
+stretch_mode = 5
+
+[node name="margin_container" type="MarginContainer" parent="ui/top_inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 5
+
+[node name="panel" type="Panel" parent="ui/top_inventory/margin_container"]
+layout_mode = 2
+
+[node name="container" type="HBoxContainer" parent="ui/top_inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_right = -18.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="base_ui_cell_1" parent="ui/top_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="base_ui_cell_2" parent="ui/top_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="base_ui_cell_3" parent="ui/top_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="base_ui_cell_4" parent="ui/top_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="base_ui_cell_5" parent="ui/top_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="base_ui_cell_6" parent="ui/top_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="base_ui_cell_7" parent="ui/top_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="right_inventory" type="TextureRect" parent="ui"]
+self_modulate = Color(0.780392, 0.780392, 0.780392, 1)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="margin_container" type="MarginContainer" parent="ui/right_inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="panel" type="Panel" parent="ui/right_inventory/margin_container"]
+layout_mode = 2
+
+[node name="container" type="VBoxContainer" parent="ui/right_inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="base_ui_cell_1" parent="ui/right_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_2" parent="ui/right_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_3" parent="ui/right_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_4" parent="ui/right_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_5" parent="ui/right_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_6" parent="ui/right_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_7" parent="ui/right_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_8" parent="ui/right_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="base_ui_cell_9" parent="ui/right_inventory/container" instance=ExtResource("3_s2rvu")]
+layout_mode = 2
+
+[node name="v_box_container" type="VBoxContainer" parent="ui"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 103.0
+offset_top = -144.0
+offset_right = 203.0
+offset_bottom = -16.0
+grow_vertical = 0
+
+[node name="mining_button" type="Button" parent="ui/v_box_container"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+
+[node name="label" type="Label" parent="ui/v_box_container/mining_button"]
+modulate = Color(0.72549, 0.835294, 0.737255, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "extract"
+label_settings = SubResource("LabelSettings_d7uvu")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="destroy_button" type="Button" parent="ui/v_box_container"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+
+[node name="label" type="Label" parent="ui/v_box_container/destroy_button"]
+modulate = Color(0.72549, 0.835294, 0.737255, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "destroy"
+label_settings = SubResource("LabelSettings_d7uvu")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="craft_button" type="Button" parent="ui/v_box_container"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+
+[node name="label" type="Label" parent="ui/v_box_container/craft_button"]
+modulate = Color(0.72549, 0.835294, 0.737255, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "craft"
+label_settings = SubResource("LabelSettings_d7uvu")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="label" type="Label" parent="ui"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -374.0
+offset_top = -125.0
+offset_right = -100.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "ALT   - amount of resources
+CTRL  - transfer 1 resource
+SHIFT - transfer 10 resources
+LMB  - transfer of ALL resources
+RMB  - transfer resources in cell
+"
+label_settings = SubResource("LabelSettings_850d7")
+vertical_alignment = 2
+uppercase = true
+
+[node name="wins" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="global_wins" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="sounds" type="Node" parent="."]
+
+[node name="music" type="Node" parent="sounds"]
+
+[node name="music_amb" type="AudioStreamPlayer" parent="sounds/music"]
+stream = ExtResource("4_ln6wv")
+bus = &"music"
+
+[node name="vfx" type="Node" parent="sounds"]
+
+[node name="snd_button" type="AudioStreamPlayer" parent="sounds/vfx"]
+stream = ExtResource("5_8dhsw")
+bus = &"vfx"
+
+[node name="snd_drop" type="AudioStreamPlayer" parent="sounds/vfx"]
+stream = ExtResource("6_qe77j")
+volume_db = 10.0
+bus = &"vfx"
+
+[node name="snd_list" type="AudioStreamPlayer" parent="sounds/vfx"]
+stream = ExtResource("7_d65et")
+bus = &"vfx"
+
+[node name="snd_pickup" type="AudioStreamPlayer" parent="sounds/vfx"]
+stream = ExtResource("8_imd1h")
+bus = &"vfx"
+
+[node name="snd_steps" type="AudioStreamPlayer" parent="sounds/vfx"]
+stream = ExtResource("9_cj7ol")
+volume_db = 10.0
+bus = &"vfx"
+
+[node name="snd_tool" type="AudioStreamPlayer" parent="sounds/vfx"]
+stream = ExtResource("10_rupjc")
+bus = &"vfx"
+
+[node name="snd_whoosh" type="AudioStreamPlayer" parent="sounds/vfx"]
+stream = ExtResource("11_srwxv")
+volume_db = 10.0
+bus = &"vfx"
+
+[node name="snd_work" type="AudioStreamPlayer" parent="sounds/vfx"]
+stream = ExtResource("12_xxvgm")
+max_polyphony = 10
+bus = &"vfx"
+
+[connection signal="item_clicked" from="ui/ItemList" to="ui" method="_on_item_list_item_clicked"]
+[connection signal="pressed" from="ui/v_box_container/mining_button" to="ui" method="_on_mining_button_pressed"]
+[connection signal="pressed" from="ui/v_box_container/destroy_button" to="ui" method="_on_destroy_button_pressed"]
+[connection signal="pressed" from="ui/v_box_container/craft_button" to="." method="_on_craft_button_pressed"]

@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwfaq65qa1o0a"]
+
+[ext_resource type="Script" path="res://Scripts/base_ui_cell.gd" id="1_ca0p8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h28ya"]
+line_spacing = 0.0
+outline_color = Color(0, 0, 0, 1)
+
+[node name="base_ui_cell" type="Control" node_paths=PackedStringArray("counter_label", "name_label", "icon")]
+custom_minimum_size = Vector2(40, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 50.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("1_ca0p8")
+counter_label = NodePath("v_box_container/panel/counter")
+name_label = NodePath("v_box_container/name")
+icon = NodePath("v_box_container/panel/margin_container/icon")
+
+[node name="v_box_container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="panel" type="TextureRect" parent="v_box_container"]
+self_modulate = Color(0.780392, 0.780392, 0.780392, 1)
+texture_filter = 1
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+stretch_mode = 5
+
+[node name="margin_container_2" type="MarginContainer" parent="v_box_container/panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="panel" type="Panel" parent="v_box_container/panel/margin_container_2"]
+layout_mode = 2
+
+[node name="margin_container" type="MarginContainer" parent="v_box_container/panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="icon" type="TextureRect" parent="v_box_container/panel/margin_container"]
+layout_mode = 2
+
+[node name="counter" type="Label" parent="v_box_container/panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="v_box_container"]
+texture_filter = 1
+layout_mode = 2
+label_settings = SubResource("LabelSettings_h28ya")
+uppercase = true
+
+[node name="input_detector" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="gui_input" from="input_detector" to="." method="_on_input_detector_gui_input"]
+[connection signal="pressed" from="input_detector" to="." method="_on_input_detector_pressed"]

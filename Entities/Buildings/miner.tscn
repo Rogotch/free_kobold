@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3o3f703nq75f"]
+
+[ext_resource type="PackedScene" uid="uid://cdk0811tq5qk3" path="res://Entities/base_building.tscn" id="1_nhpnd"]
+[ext_resource type="Script" path="res://Scripts/Buildings/miner.gd" id="2_cj5kc"]
+[ext_resource type="Texture2D" uid="uid://bsydml40rpbh8" path="res://Sprites/art_free/Pixel Art Top Down - Basic/Texture/TX Props.png" id="4_pbad3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5q83"]
+atlas = ExtResource("4_pbad3")
+region = Rect2(162, 153, 28, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37n8t"]
+atlas = ExtResource("4_pbad3")
+region = Rect2(146, 128, 73, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wtcqd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37n8t")
+}],
+"loop": true,
+"name": &"production",
+"speed": 4.0
+}]
+
+[node name="miner" instance=ExtResource("1_nhpnd")]
+script = ExtResource("2_cj5kc")
+types_of_resource = Array[int]([2, 5, 1])
+entity_id = 999
+
+[node name="off_sprite" parent="." index="0"]
+visible = false
+texture = SubResource("AtlasTexture_b5q83")
+
+[node name="on_anim" parent="." index="1"]
+visible = true
+position = Vector2(6, -12)
+sprite_frames = SubResource("SpriteFrames_wtcqd")
+frame_progress = 0.967484

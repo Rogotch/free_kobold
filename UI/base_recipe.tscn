@@ -1,0 +1,236 @@
+[gd_scene load_steps=12 format=3 uid="uid://c7cvr8881lha3"]
+
+[ext_resource type="Script" path="res://Scripts/base_recipe.gd" id="1_b5bqr"]
+[ext_resource type="PackedScene" uid="uid://dwfaq65qa1o0a" path="res://Entities/base_ui_cell.tscn" id="2_y2y3e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tqjg5"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_s373u"]
+font_size = 80
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w6d2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adlan"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jbum6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fheko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gvl8u"]
+
+[sub_resource type="Theme" id="Theme_ijplg"]
+HScrollBar/icons/decrement = null
+HScrollBar/icons/decrement_highlight = null
+HScrollBar/icons/decrement_pressed = null
+HScrollBar/icons/increment = null
+HScrollBar/icons/increment_highlight = null
+HScrollBar/icons/increment_pressed = null
+HScrollBar/styles/grabber = SubResource("StyleBoxEmpty_w6d2l")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_adlan")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_jbum6")
+HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_fheko")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_gvl8u")
+
+[sub_resource type="LabelSettings" id="LabelSettings_s1gei"]
+line_spacing = 0.0
+font_size = 32
+
+[node name="base_recipe" type="Control" node_paths=PackedStringArray("recipes", "scroll_recipes", "recipes_left", "recipes_right", "resources", "final_result", "title")]
+custom_minimum_size = Vector2(423, 340)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.5
+offset_top = -170.0
+offset_right = 211.5
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_b5bqr")
+recipes = NodePath("panel/margin_container/v_box_container/recipes/scroll_recipes/recipes")
+scroll_recipes = NodePath("panel/margin_container/v_box_container/recipes/scroll_recipes")
+recipes_left = NodePath("panel/margin_container/v_box_container/recipes/left")
+recipes_right = NodePath("panel/margin_container/v_box_container/recipes/right")
+resources = NodePath("panel/margin_container/v_box_container/resources")
+final_result = NodePath("panel/margin_container/v_box_container/center_container/base_ui_cell")
+title = NodePath("panel/margin_container/v_box_container/title")
+
+[node name="panel" type="TextureRect" parent="."]
+self_modulate = Color(0.776471, 0.776471, 0.776471, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="margin_container_2" type="MarginContainer" parent="panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="panel" type="Panel" parent="panel/margin_container_2"]
+layout_mode = 2
+
+[node name="margin_container" type="MarginContainer" parent="panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 70
+
+[node name="v_box_container" type="VBoxContainer" parent="panel/margin_container"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="title" type="Label" parent="panel/margin_container/v_box_container"]
+layout_mode = 2
+text = "Верстак"
+label_settings = SubResource("LabelSettings_tqjg5")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="recipes" type="HBoxContainer" parent="panel/margin_container/v_box_container"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="left" type="Button" parent="panel/margin_container/v_box_container/recipes"]
+self_modulate = Color(0.654902, 0.537255, 0.431373, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="label" type="Label" parent="panel/margin_container/v_box_container/recipes/left"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -7.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "<"
+label_settings = SubResource("LabelSettings_s373u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scroll_recipes" type="ScrollContainer" parent="panel/margin_container/v_box_container/recipes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_ijplg")
+vertical_scroll_mode = 0
+
+[node name="recipes" type="HBoxContainer" parent="panel/margin_container/v_box_container/recipes/scroll_recipes"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_ijplg")
+theme_override_constants/separation = 7
+alignment = 1
+
+[node name="right" type="Button" parent="panel/margin_container/v_box_container/recipes"]
+self_modulate = Color(0.654902, 0.537255, 0.431373, 1)
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="label" type="Label" parent="panel/margin_container/v_box_container/recipes/right"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -7.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = ">"
+label_settings = SubResource("LabelSettings_s373u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="resources" type="HBoxContainer" parent="panel/margin_container/v_box_container"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+alignment = 1
+
+[node name="center_container" type="CenterContainer" parent="panel/margin_container/v_box_container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="base_ui_cell" parent="panel/margin_container/v_box_container/center_container" instance=ExtResource("2_y2y3e")]
+layout_mode = 2
+dragable = false
+selectable = false
+start_select_flag = true
+
+[node name="texture_button" type="Button" parent="panel/margin_container/v_box_container"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="label" type="Label" parent="panel/margin_container/v_box_container/texture_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "start_work"
+label_settings = SubResource("LabelSettings_s1gei")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="close_button" type="Button" parent="panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -46.0
+offset_top = 10.0
+offset_right = -6.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[node name="label" type="Label" parent="panel/close_button"]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.5
+offset_top = -16.0
+offset_right = 2.5
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "x"
+label_settings = SubResource("LabelSettings_s373u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="panel/margin_container/v_box_container/recipes/left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="panel/margin_container/v_box_container/recipes/right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="panel/margin_container/v_box_container/texture_button" to="." method="start_work"]
+[connection signal="pressed" from="panel/close_button" to="." method="_on_close_button_pressed"]

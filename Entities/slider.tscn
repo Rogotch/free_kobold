@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://67afyqfg36y2"]
+
+[sub_resource type="GDScript" id="GDScript_nxxa2"]
+resource_name = "slider"
+script/source = "extends HBoxContainer
+
+
+@export var bus_name : String
+@export var slider   : Slider
+
+func _ready() -> void:
+	slider.value  = AudioServer.get_bus_volume_db(AudioServer.get_bus_index(bus_name))
+	pass # Replace with function body.
+
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(bus_name),  float(value))
+#	if value == slider.min_value:
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(bus_name), value == slider.min_value)
+	pass # Replace with function body.
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5slkj"]
+bg_color = Color(0.54902, 0.392157, 0.278431, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rirp6"]
+bg_color = Color(0.188235, 0.113725, 0.0509804, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 1.0
+expand_margin_top = 6.0
+expand_margin_right = 1.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="Theme" id="Theme_oxm54"]
+HSlider/constants/grabber_offset = 0
+HSlider/icons/grabber = null
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = null
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_5slkj")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_5slkj")
+HSlider/styles/slider = SubResource("StyleBoxFlat_rirp6")
+
+[node name="slider" type="HBoxContainer" node_paths=PackedStringArray("slider")]
+offset_right = 340.0
+offset_bottom = 16.0
+script = SubResource("GDScript_nxxa2")
+bus_name = "Master"
+slider = NodePath("h_slider")
+
+[node name="h_slider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = SubResource("Theme_oxm54")
+min_value = -30.0
+max_value = 6.0
+
+[connection signal="value_changed" from="h_slider" to="." method="_on_volume_slider_value_changed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm30yvce523qp"]
+
+[ext_resource type="Script" path="res://Scripts/game_resource.gd" id="1_fusti"]
+
+[node name="resource_object" type="CharacterBody2D"]
+script = ExtResource("1_fusti")
+count = 1
+
+[node name="resource_sprite" type="Sprite2D" parent="."]

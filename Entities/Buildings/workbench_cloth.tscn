@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4jde7sm3wtf6"]
+
+[ext_resource type="PackedScene" uid="uid://cdk0811tq5qk3" path="res://Entities/base_building.tscn" id="1_butkx"]
+[ext_resource type="Script" path="res://Scripts/workbench.gd" id="2_ryo6v"]
+
+[node name="workbench" instance=ExtResource("1_butkx")]
+script = ExtResource("2_ryo6v")
+building_id = 104
+ignore_drag = false
+entity_id = 104
+
+[node name="off_sprite" parent="." index="0"]
+position = Vector2(1, -6.5)
+
+[node name="on_anim" parent="." index="1"]
+position = Vector2(1, -6.5)
+frame_progress = 0.0

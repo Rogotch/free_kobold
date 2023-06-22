@@ -1,0 +1,1204 @@
+[gd_scene load_steps=30 format=3 uid="uid://csmvkufjlf0iu"]
+
+[ext_resource type="Script" path="res://Scripts/TestScene.gd" id="1_vspmy"]
+[ext_resource type="Texture2D" uid="uid://3ano13os1imd" path="res://Sprites/Test/roguelikeDungeon_transparent.png" id="2_ttqws"]
+[ext_resource type="Script" path="res://Scripts/AStar_map.gd" id="3_6aqrv"]
+[ext_resource type="PackedScene" uid="uid://u6h2gy046ire" path="res://Entities/base_character.tscn" id="4_vqwyy"]
+[ext_resource type="PackedScene" uid="uid://fy3doel5umrf" path="res://Entities/Buildings/workbench_brick.tscn" id="6_bsx3p"]
+[ext_resource type="PackedScene" uid="uid://d3ojyhbod5t6" path="res://Entities/GameResources/brick.tscn" id="6_yf2na"]
+[ext_resource type="PackedScene" uid="uid://d4jde7sm3wtf6" path="res://Entities/Buildings/workbench_cloth.tscn" id="7_h05ig"]
+[ext_resource type="PackedScene" uid="uid://b3lnevuqvxyvm" path="res://Entities/Buildings/workbench_foundry.tscn" id="8_ogo2m"]
+[ext_resource type="PackedScene" uid="uid://gi1imbqfggl0" path="res://Entities/Buildings/workbench_shredder.tscn" id="9_82f8k"]
+[ext_resource type="PackedScene" uid="uid://bjheas0amvrd3" path="res://Entities/Buildings/workbench_smithy.tscn" id="10_p4nkb"]
+[ext_resource type="PackedScene" uid="uid://ndrqljie1dbp" path="res://Entities/Buildings/workbench_vessel.tscn" id="11_0wn5h"]
+[ext_resource type="PackedScene" uid="uid://blprmoo4sdwfw" path="res://Entities/Buildings/workbench_workshop.tscn" id="12_wqr86"]
+[ext_resource type="PackedScene" uid="uid://bp4ricphxhig" path="res://Entities/base_resource.tscn" id="13_q1unt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d36fq"]
+texture = ExtResource("2_ttqws")
+separation = Vector2i(1, 1)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+23:0/0 = 0
+24:0/0 = 0
+25:0/0 = 0
+26:0/0 = 0
+27:0/0 = 0
+28:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+23:1/0 = 0
+24:1/0 = 0
+25:1/0 = 0
+26:1/0 = 0
+27:1/0 = 0
+28:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+23:2/0 = 0
+24:2/0 = 0
+25:2/0 = 0
+26:2/0 = 0
+27:2/0 = 0
+28:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+23:3/0 = 0
+24:3/0 = 0
+25:3/0 = 0
+26:3/0 = 0
+27:3/0 = 0
+28:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+23:4/0 = 0
+24:4/0 = 0
+25:4/0 = 0
+26:4/0 = 0
+27:4/0 = 0
+28:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+4:5/0/custom_data_0 = true
+5:5/0 = 0
+5:5/0/custom_data_0 = true
+6:5/0 = 0
+6:5/0/custom_data_0 = true
+7:5/0 = 0
+7:5/0/custom_data_0 = true
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+22:5/0 = 0
+23:5/0 = 0
+24:5/0 = 0
+25:5/0 = 0
+26:5/0 = 0
+27:5/0 = 0
+28:5/0 = 0
+0:6/0 = 0
+0:6/0/custom_data_0 = true
+1:6/0 = 0
+1:6/0/custom_data_0 = true
+2:6/0 = 0
+2:6/0/custom_data_0 = true
+3:6/0 = 0
+3:6/0/custom_data_0 = true
+4:6/0 = 0
+4:6/0/custom_data_0 = true
+5:6/0 = 0
+5:6/0/custom_data_0 = true
+6:6/0 = 0
+6:6/0/custom_data_0 = true
+7:6/0 = 0
+7:6/0/custom_data_0 = true
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+20:6/0 = 0
+21:6/0 = 0
+22:6/0 = 0
+23:6/0 = 0
+24:6/0 = 0
+25:6/0 = 0
+26:6/0 = 0
+27:6/0 = 0
+28:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+20:7/0 = 0
+21:7/0 = 0
+22:7/0 = 0
+23:7/0 = 0
+24:7/0 = 0
+25:7/0 = 0
+26:7/0 = 0
+27:7/0 = 0
+28:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+21:8/0 = 0
+22:8/0 = 0
+23:8/0 = 0
+24:8/0 = 0
+25:8/0 = 0
+26:8/0 = 0
+27:8/0 = 0
+28:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+21:9/0 = 0
+22:9/0 = 0
+23:9/0 = 0
+24:9/0 = 0
+25:9/0 = 0
+26:9/0 = 0
+27:9/0 = 0
+28:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+16:10/0/terrain_set = 0
+16:10/0/terrain = 1
+17:10/0 = 0
+17:10/0/terrain_set = 0
+17:10/0/terrain = 1
+18:10/0 = 0
+18:10/0/terrain_set = 0
+18:10/0/terrain = 1
+19:10/0 = 0
+19:10/0/terrain_set = 0
+19:10/0/terrain = 1
+20:10/0 = 0
+20:10/0/terrain_set = 0
+20:10/0/terrain = 1
+21:10/0 = 0
+22:10/0 = 0
+23:10/0 = 0
+24:10/0 = 0
+25:10/0 = 0
+26:10/0 = 0
+27:10/0 = 0
+28:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+16:11/0/terrain_set = 0
+16:11/0/terrain = 1
+17:11/0 = 0
+17:11/0/terrain_set = 0
+17:11/0/terrain = 1
+18:11/0 = 0
+18:11/0/terrain_set = 0
+18:11/0/terrain = 1
+19:11/0 = 0
+19:11/0/terrain_set = 0
+19:11/0/terrain = 1
+20:11/0 = 0
+20:11/0/terrain_set = 0
+20:11/0/terrain = 1
+21:11/0 = 0
+22:11/0 = 0
+23:11/0 = 0
+24:11/0 = 0
+25:11/0 = 0
+26:11/0 = 0
+27:11/0 = 0
+28:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+16:12/0 = 0
+16:12/0/terrain_set = 0
+16:12/0/terrain = 0
+17:12/0 = 0
+17:12/0/terrain_set = 0
+17:12/0/terrain = 0
+18:12/0 = 0
+18:12/0/terrain_set = 0
+18:12/0/terrain = 0
+19:12/0 = 0
+19:12/0/terrain_set = 0
+19:12/0/terrain = 0
+20:12/0 = 0
+20:12/0/terrain_set = 0
+20:12/0/terrain = 0
+21:12/0 = 0
+22:12/0 = 0
+23:12/0 = 0
+24:12/0 = 0
+25:12/0 = 0
+26:12/0 = 0
+27:12/0 = 0
+28:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+16:13/0 = 0
+16:13/0/terrain_set = 0
+16:13/0/terrain = 0
+17:13/0 = 0
+17:13/0/terrain_set = 0
+17:13/0/terrain = 0
+18:13/0 = 0
+18:13/0/terrain_set = 0
+18:13/0/terrain = 0
+19:13/0 = 0
+19:13/0/terrain_set = 0
+19:13/0/terrain = 0
+20:13/0 = 0
+20:13/0/terrain_set = 0
+20:13/0/terrain = 0
+21:13/0 = 0
+22:13/0 = 0
+23:13/0 = 0
+24:13/0 = 0
+25:13/0 = 0
+26:13/0 = 0
+27:13/0 = 0
+28:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+18:14/0 = 0
+19:14/0 = 0
+20:14/0 = 0
+21:14/0 = 0
+22:14/0 = 0
+23:14/0 = 0
+24:14/0 = 0
+25:14/0 = 0
+26:14/0 = 0
+27:14/0 = 0
+28:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
+17:15/0 = 0
+18:15/0 = 0
+19:15/0 = 0
+20:15/0 = 0
+21:15/0 = 0
+22:15/0 = 0
+23:15/0 = 0
+24:15/0 = 0
+25:15/0 = 0
+26:15/0 = 0
+27:15/0 = 0
+28:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+14:16/0 = 0
+15:16/0 = 0
+16:16/0 = 0
+17:16/0 = 0
+18:16/0 = 0
+19:16/0 = 0
+20:16/0 = 0
+21:16/0 = 0
+22:16/0 = 0
+23:16/0 = 0
+24:16/0 = 0
+25:16/0 = 0
+26:16/0 = 0
+27:16/0 = 0
+28:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+14:17/0 = 0
+15:17/0 = 0
+16:17/0 = 0
+17:17/0 = 0
+18:17/0 = 0
+19:17/0 = 0
+20:17/0 = 0
+21:17/0 = 0
+22:17/0 = 0
+23:17/0 = 0
+24:17/0 = 0
+25:17/0 = 0
+26:17/0 = 0
+27:17/0 = 0
+28:17/0 = 0
+7:8/0 = 0
+7:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ys2w4"]
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Dirt"
+terrain_set_0/terrain_0/color = Color(0.5, 0.4375, 0.25, 1)
+terrain_set_0/terrain_1/name = "Stone"
+terrain_set_0/terrain_1/color = Color(0.435192, 0.435192, 0.435192, 1)
+custom_data_layer_0/name = "obstacle"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "resource_cell"
+custom_data_layer_1/type = 24
+custom_data_layer_2/name = "buildable"
+custom_data_layer_2/type = 1
+sources/3 = SubResource("TileSetAtlasSource_d36fq")
+
+[sub_resource type="Shader" id="Shader_encf5"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 color : source_color = vec4(1.0);
+uniform float width : hint_range(0, 10) = 1.0;
+uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
+uniform bool inside = false;
+uniform bool add_margins = true; // only useful when inside is false
+
+void vertex() {
+	if (add_margins) {
+		VERTEX += (UV * 2.0 - 1.0) * width;
+	}
+}
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	if (add_margins) {
+		vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(width * 2.0));
+		
+		uv = (uv - texture_pixel_size * width) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+		
+		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+			COLOR.a = 0.0;
+		} else {
+			COLOR = texture(TEXTURE, uv);
+		}
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_juijx"]
+resource_local_to_scene = true
+shader = SubResource("Shader_encf5")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = false
+
+[sub_resource type="Shader" id="Shader_rehxx"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 color : source_color = vec4(1.0);
+uniform float width : hint_range(0, 10) = 1.0;
+uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
+uniform bool inside = false;
+uniform bool add_margins = true; // only useful when inside is false
+
+void vertex() {
+	if (add_margins) {
+		VERTEX += (UV * 2.0 - 1.0) * width;
+	}
+}
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	if (add_margins) {
+		vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(width * 2.0));
+		
+		uv = (uv - texture_pixel_size * width) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+		
+		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+			COLOR.a = 0.0;
+		} else {
+			COLOR = texture(TEXTURE, uv);
+		}
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqpqq"]
+resource_local_to_scene = true
+shader = SubResource("Shader_rehxx")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = false
+
+[sub_resource type="Shader" id="Shader_nt3p8"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 color : source_color = vec4(1.0);
+uniform float width : hint_range(0, 10) = 1.0;
+uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
+uniform bool inside = false;
+uniform bool add_margins = true; // only useful when inside is false
+
+void vertex() {
+	if (add_margins) {
+		VERTEX += (UV * 2.0 - 1.0) * width;
+	}
+}
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	if (add_margins) {
+		vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(width * 2.0));
+		
+		uv = (uv - texture_pixel_size * width) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+		
+		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+			COLOR.a = 0.0;
+		} else {
+			COLOR = texture(TEXTURE, uv);
+		}
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bj0es"]
+resource_local_to_scene = true
+shader = SubResource("Shader_nt3p8")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = false
+
+[sub_resource type="Shader" id="Shader_4yvn1"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 color : source_color = vec4(1.0);
+uniform float width : hint_range(0, 10) = 1.0;
+uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
+uniform bool inside = false;
+uniform bool add_margins = true; // only useful when inside is false
+
+void vertex() {
+	if (add_margins) {
+		VERTEX += (UV * 2.0 - 1.0) * width;
+	}
+}
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	if (add_margins) {
+		vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(width * 2.0));
+		
+		uv = (uv - texture_pixel_size * width) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+		
+		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+			COLOR.a = 0.0;
+		} else {
+			COLOR = texture(TEXTURE, uv);
+		}
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0b4co"]
+resource_local_to_scene = true
+shader = SubResource("Shader_4yvn1")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = false
+
+[sub_resource type="Shader" id="Shader_vxpad"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 color : source_color = vec4(1.0);
+uniform float width : hint_range(0, 10) = 1.0;
+uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
+uniform bool inside = false;
+uniform bool add_margins = true; // only useful when inside is false
+
+void vertex() {
+	if (add_margins) {
+		VERTEX += (UV * 2.0 - 1.0) * width;
+	}
+}
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	if (add_margins) {
+		vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(width * 2.0));
+		
+		uv = (uv - texture_pixel_size * width) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+		
+		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+			COLOR.a = 0.0;
+		} else {
+			COLOR = texture(TEXTURE, uv);
+		}
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dws1d"]
+resource_local_to_scene = true
+shader = SubResource("Shader_vxpad")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = false
+
+[sub_resource type="Shader" id="Shader_5mg23"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 color : source_color = vec4(1.0);
+uniform float width : hint_range(0, 10) = 1.0;
+uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
+uniform bool inside = false;
+uniform bool add_margins = true; // only useful when inside is false
+
+void vertex() {
+	if (add_margins) {
+		VERTEX += (UV * 2.0 - 1.0) * width;
+	}
+}
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	if (add_margins) {
+		vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(width * 2.0));
+		
+		uv = (uv - texture_pixel_size * width) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+		
+		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+			COLOR.a = 0.0;
+		} else {
+			COLOR = texture(TEXTURE, uv);
+		}
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5g5mi"]
+resource_local_to_scene = true
+shader = SubResource("Shader_5mg23")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = false
+
+[sub_resource type="Shader" id="Shader_74d38"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 color : source_color = vec4(1.0);
+uniform float width : hint_range(0, 10) = 1.0;
+uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
+uniform bool inside = false;
+uniform bool add_margins = true; // only useful when inside is false
+
+void vertex() {
+	if (add_margins) {
+		VERTEX += (UV * 2.0 - 1.0) * width;
+	}
+}
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	if (add_margins) {
+		vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(width * 2.0));
+		
+		uv = (uv - texture_pixel_size * width) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+		
+		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+			COLOR.a = 0.0;
+		} else {
+			COLOR = texture(TEXTURE, uv);
+		}
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iandd"]
+resource_local_to_scene = true
+shader = SubResource("Shader_74d38")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = false
+
+[node name="TestScene" type="Node2D" node_paths=PackedStringArray("tile_map")]
+y_sort_enabled = true
+script = ExtResource("1_vspmy")
+tile_map = NodePath("tile_map")
+
+[node name="tile_map" type="TileMap" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+tile_set = SubResource("TileSet_ys2w4")
+format = 2
+layer_0/name = "Base"
+layer_0/tile_data = PackedInt32Array(196608, 1179651, 12, 262144, 1179651, 13, 262145, 1048579, 12, 262146, 1245187, 13, 262147, 1310723, 13, 196611, 1048579, 13, 131076, 1245187, 12, 131075, 1310723, 12, 131074, 1114115, 12, 131073, 1310723, 12, 196609, 1310723, 12, 196610, 1048579, 13, 262148, 1179651, 13, 196612, 1048579, 13, 196613, 1245187, 13, 131077, 1245187, 13, 65541, 1114115, 13, 65540, 1310723, 12, 65539, 1245187, 13, 65538, 1310723, 13, 65537, 1114115, 12, 65536, 1310723, 12, 131072, 1179651, 13, 0, 1048579, 12, 1, 1114115, 13, 2, 1179651, 13, 3, 1310723, 12, 5, 1179651, 13, 131078, 1114115, 13, 196614, 1048579, 13, 262150, 1310723, 13, 262149, 1245187, 13, 6, 1179651, 12, 7, 1114115, 13, 65543, 1310723, 13, 131079, 1114115, 12, 65542, 1245187, 13, 196615, 1179651, 13, 262151, 1310723, 12, 8, 1048579, 12, 65544, 1048579, 12, 131080, 1114115, 13, 196616, 1179651, 12, 262152, 1048579, 13, 262153, 1048579, 12, 262154, 1179651, 12, 262155, 1114115, 12, 262156, 1310723, 12, 196620, 1114115, 12, 65548, 1179651, 12, 12, 1245187, 13, 11, 1114115, 13, 10, 1310723, 12, 9, 1179651, 13, 196617, 1310723, 13, 196618, 1245187, 12, 196619, 1245187, 13, 131084, 1114115, 12, 131083, 1310723, 12, 65547, 1179651, 13, 65546, 1048579, 13, 65545, 1245187, 13, 131081, 1114115, 12, 131082, 1310723, 12, 4, 1310723, 12)
+layer_1/name = ""
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Objects"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = true
+layer_2/y_sort_origin = 0
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array(131076, 327683, 5, 196612, 327683, 5, 262148, 327683, 5, 131078, 393219, 5, 131080, 393219, 5, 131079, 327683, 5, 131073, 3, 6, 131081, 327683, 5, 196617, 327683, 5, 262153, 327683, 5)
+layer_3/name = "Air"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 10
+layer_3/tile_data = PackedInt32Array(65537, 3, 5)
+script = ExtResource("3_6aqrv")
+
+[node name="base_character" parent="tile_map" instance=ExtResource("4_vqwyy")]
+position = Vector2(10, 7)
+start_inventory = Array[int]([100])
+
+[node name="resource_object" parent="tile_map" instance=ExtResource("6_yf2na")]
+position = Vector2(47, 28)
+
+[node name="conveyor" type="StaticBody2D" parent="tile_map"]
+position = Vector2(55, 30)
+
+[node name="workbench" parent="tile_map" instance=ExtResource("6_bsx3p")]
+material = SubResource("ShaderMaterial_juijx")
+position = Vector2(56, 8)
+
+[node name="workbench_2" parent="tile_map" node_paths=PackedStringArray("off_sprite", "on_anim") instance=ExtResource("7_h05ig")]
+material = SubResource("ShaderMaterial_vqpqq")
+position = Vector2(73, 7)
+off_sprite = NodePath("../workbench/off_sprite")
+on_anim = NodePath("../workbench/on_anim")
+
+[node name="workbench_3" parent="tile_map" instance=ExtResource("8_ogo2m")]
+material = SubResource("ShaderMaterial_bj0es")
+position = Vector2(88, 7)
+
+[node name="workbench_4" parent="tile_map" instance=ExtResource("9_82f8k")]
+material = SubResource("ShaderMaterial_0b4co")
+position = Vector2(104, 7)
+
+[node name="workbench_5" parent="tile_map" instance=ExtResource("10_p4nkb")]
+material = SubResource("ShaderMaterial_dws1d")
+position = Vector2(121, 7)
+
+[node name="workbench_6" parent="tile_map" instance=ExtResource("11_0wn5h")]
+material = SubResource("ShaderMaterial_5g5mi")
+position = Vector2(137, 7)
+
+[node name="workbench_7" parent="tile_map" instance=ExtResource("12_wqr86")]
+material = SubResource("ShaderMaterial_iandd")
+position = Vector2(150, 7)
+
+[node name="base_resource" parent="tile_map" instance=ExtResource("13_q1unt")]
+position = Vector2(88, 57)
+type = 2

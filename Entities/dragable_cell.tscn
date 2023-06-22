@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu36wa37wcg62"]
+
+[ext_resource type="PackedScene" uid="uid://dwfaq65qa1o0a" path="res://Entities/base_ui_cell.tscn" id="1_gqiw0"]
+[ext_resource type="Script" path="res://Scripts/dragable_cell.gd" id="2_343wf"]
+
+[node name="dragable_cell" instance=ExtResource("1_gqiw0")]
+script = ExtResource("2_343wf")

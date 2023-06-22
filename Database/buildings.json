@@ -1,0 +1,54 @@
+[	{
+		"id"          : 0,
+		"dev_comment" : "База",
+		"recipes"     : [0, 2, 3, 4, 5, 6, 14]
+	},
+	{
+		"id"          : 103,
+		"entity_id"   : 103,
+		"dev_comment" : "Мастерская",
+		"recipes"     : [7, 9, 11, 12, 15, 21]
+	},
+	{
+		"id"          : 104,
+		"entity_id"   : 104,
+		"dev_comment" : "Ткацкий",
+		"recipes"     : [2, 8]
+	},
+	{
+		"id"          : 105,
+		"entity_id"   : 105,
+		"dev_comment" : "Кирпичный",
+		"recipes"     : [10]
+	},
+	{
+		"id"          : 106,
+		"entity_id"   : 106,
+		"dev_comment" : "Вода",
+		"recipes"     : [1]
+	},
+	{
+		"id"          : 107,
+		"entity_id"   : 107,
+		"dev_comment" : "Сосуды",
+		"recipes"     : [0]
+	},
+	{
+		"id"          : 109,
+		"entity_id"   : 109,
+		"dev_comment" : "Плавильня",
+		"recipes"     : [16, 17, 18, 19, 20]
+	},
+	{
+		"id"          : 110,
+		"entity_id"   : 110,
+		"dev_comment" : "Кузня",
+		"recipes"     : [22, 23]
+	},
+	{
+		"id"          : 111,
+		"entity_id"   : 111,
+		"dev_comment" : "Измельчитель",
+		"recipes"     : [24, 25, 26]
+	}
+]
